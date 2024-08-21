@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .text-truncate {
+        max-height: 100px; /* Установите максимальную высоту */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* Установите количество строк, которые будут видны */
+        -webkit-box-orient: vertical;
+        cursor: pointer; /* Добавляем курсор указателя */
+    }
+    .full-text {
+        display: none;
+    }
+</style>
+<h1>Documents</h1>
+<a href="{% url 'document_create' %}" class="btn btn-success mb-3">Создать новый документ</a>
+<ul class="list-group">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название документа</th>
+                <th scope="col" style="width: 200px;">Описание</th>
+                <th scope="col">Дейстия</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for document in documents %}
+              <tr>
+                <th scope="row"><a href="{% url 'document_detail' document.pk %}">{{ document.pk }}</a></th>
+                <td>{{ document.title }}</td>
+                <td class="sm">
+                    <div class="text-truncate" onclick="showFullText(this)" style="width: 1000px;">{{ document.description }}</div>
+                    <div class="full-text">{{ document.description }}</div>
+                </td>
+                <td>
+                    {% if user.is_staff or user == document.user %}
+                        <a href="{% url 'document_delete' document.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="{% url 'document_edit' document.pk %}" class="btn btn-primary btn-sm">Edit</a></td>
+                    {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+</ul>
+<script>
+    function showFullText(element) {
+        element.classList.toggle('text-truncate');
+    }
+</script>
+{% endblock %}

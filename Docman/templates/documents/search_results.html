@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load highlight_query %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Поиск по ключевым словам</h2>
+    <form method="get" action="{% url 'search_documents' %}">
+        <div class="form-group">
+            <input type="text" name="query" class="form-control" placeholder="Search documents..." value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Поиск</button>
+    </form>
+    <hr>
+    {% if query %}
+        <h4>Найдено по ключевому слову:  "{{ query }}":</h4>
+        <ul class="list-group">
+            {% for result in results %}
+                <li class="list-group-item">
+                    <a href="{% url 'document_detail' result.pk %}">{{ result.title }}</a>
+                    <p>{{ result.description|highlight_query:query|safe }}</p>
+                </li>
+            {% empty %}
+                <li class="list-group-item">Ничего не найдено</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Введите ключевое слово</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>{% if form.instance.pk %}Изменить {% else %}Создать{% endif %} документ</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_title">Название документа:</label>
+            <input type="text" class="form-control" id="id_title" name="title" value="{{ form.title.value }}">
+            {% if form.title.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.title.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_description">Описание:</label>
+            <textarea class="form-control" id="id_description" name="description">{{ form.description.value }}</textarea>
+            {% if form.description.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.description.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_document_type">Тип документа:</label>
+            <select class="form-control" id="id_document_type" name="document_type">
+                {% for option in form.document_type.field.choices %}
+                    <option value="{{ option.0 }}" {% if option.0 == form.document_type.value %}selected{% endif %}>{{ option.1 }}</option>
+                {% endfor %}
+            </select>
+            {% if form.document_type.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.document_type.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_attached_file">Прикрепленные файлы:</label>
+            {{ formset.management_form }}
+            {% for form in formset.forms %}
+                <div class="form-row">
+                    {{ form.file.label_tag }}
+                    {{ form.file }}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Сохранить{% else %}Создать{% endif %}</button>
+    </form>
+</div>
+{% endblock %}

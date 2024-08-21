@@ -1,0 +1,141 @@
+"GET /documents/create/ HTTP/1.1" 200 2753
+Document created: awd by user admin
+"POST /documents/create/ HTTP/1.1" 302 0
+"GET /documents/ HTTP/1.1" 200 98812
+"GET /documents/document/9/ HTTP/1.1" 200 1938
+Document downloaded: awd by user admin
+"GET /documents/document/9/download/ HTTP/1.1" 200 149452
+/home/user/DM/Docman/documents/signals.py changed, reloading.
+Watching for file changes with StatReloader
+/home/user/DM/Docman/documents/views.py changed, reloading.
+Watching for file changes with StatReloader
+2024-06-04 03:56:38 - Document downloaded: awd by user admin
+"GET /documents/document/9/download/ HTTP/1.1" 200 149452
+/home/user/DM/Docman/Docman/settings.py changed, reloading.
+Watching for file changes with StatReloader
+2024-06-04 09:59:28 - Document downloaded: awd by user admin
+"GET /documents/document/9/download/ HTTP/1.1" 200 149452
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1886
+"GET /static/css/bootstrap.min.css HTTP/1.1" 200 232803
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2591
+"POST / HTTP/1.1" 200 1900
+"POST / HTTP/1.1" 200 1900
+"POST / HTTP/1.1" 200 1900
+"POST / HTTP/1.1" 200 1900
+Watching for file changes with StatReloader
+"POST / HTTP/1.1" 302 0
+"GET /documents/ HTTP/1.1" 200 2493
+"POST /accounts/logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 1886
+"POST / HTTP/1.1" 200 1900
+"POST / HTTP/1.1" 302 0
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/search/ HTTP/1.1" 200 1755
+"GET /documents/search/?query=kokd HTTP/1.1" 200 1928
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/create/ HTTP/1.1" 200 2683
+"GET /documents/create/ HTTP/1.1" 200 2670
+"POST /documents/create/ HTTP/1.1" 200 2859
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1886
+"GET /static/css/bootstrap.min.css HTTP/1.1" 200 232803
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2861
+"POST / HTTP/1.1" 302 0
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/ HTTP/1.1" 200 2493
+Internal Server Error: /documents/create/
+Traceback (most recent call last):
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\Docman\documents\views.py", line 37, in document_create
+    formset = DocumentFileFormSet()
+              ^^^^^^^^^^^^^^^^^^^
+NameError: name 'DocumentFileFormSet' is not defined
+"GET /documents/create/ HTTP/1.1" 500 70387
+C:\Users\ESUVM-Admin\Documents\DM\Docman\documents\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /documents/create/ HTTP/1.1" 200 3159
+"GET /admin HTTP/1.1" 301 0
+"GET /admin/ HTTP/1.1" 200 7843
+"GET /static/admin/css/base.css HTTP/1.1" 200 22092
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+"GET /admin/documents/documenttype/ HTTP/1.1" 200 8893
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+"GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+"GET /admin/documents/documenttype/add/ HTTP/1.1" 200 9745
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8710
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11564
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"POST /admin/documents/documenttype/add/ HTTP/1.1" 302 0
+"GET /admin/documents/documenttype/ HTTP/1.1" 200 10652
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+"GET /admin/documents/documenttype/add/ HTTP/1.1" 200 9745
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"POST /admin/documents/documenttype/add/ HTTP/1.1" 302 0
+"GET /admin/documents/documenttype/ HTTP/1.1" 200 10983
+"GET /admin/jsi18n/ HTTP/1.1" 200 17546
+"GET /documents/create/ HTTP/1.1" 200 3299
+Internal Server Error: /documents/create/
+Traceback (most recent call last):
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ESUVM-Admin\Documents\DM\Docman\documents\views.py", line 34, in document_create
+    messages.error(request, 'Некорректно заполнена форма.')
+    ^^^^^^^^
+NameError: name 'messages' is not defined
+"POST /documents/create/ HTTP/1.1" 500 72597
+C:\Users\ESUVM-Admin\Documents\DM\Docman\documents\views.py changed, reloading.
+Watching for file changes with StatReloader
+"POST /documents/create/ HTTP/1.1" 200 3303
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/create/ HTTP/1.1" 200 3299
+"POST /documents/create/ HTTP/1.1" 200 3297
+"POST /documents/create/ HTTP/1.1" 200 3297
+"POST /documents/create/ HTTP/1.1" 200 3297
+"GET /documents/ HTTP/1.1" 200 2493
+"GET /documents/create/ HTTP/1.1" 200 3299
+"POST /documents/create/ HTTP/1.1" 200 3302
