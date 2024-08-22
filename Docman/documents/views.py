@@ -19,21 +19,30 @@ logger = logging.getLogger('django')
 @login_required
 def document_create(request):
     if request.method == 'POST':
-        form = DocumentForm(request.POST)
+        form = DocumentForm(request.POST, request.FILES)
         formset = DocumentFileFormSet(request.POST, request.FILES)
+
         if form.is_valid() and formset.is_valid():
             document = form.save(commit=False)
             document.user = request.user
             document.save()
+
             files = formset.save(commit=False)
             for file in files:
                 file.document = document
                 file.save()
+
             return redirect('document_list')
+        else:
+            print("Form errors:", form.errors)
+            print("Formset errors:", formset.errors)
+
     else:
         form = DocumentForm()
         formset = DocumentFileFormSet()
+
     return render(request, 'documents/document_form.html', {'form': form, 'formset': formset})
+
 
 @login_required
 def document_list(request):

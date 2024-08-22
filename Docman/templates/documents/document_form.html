@@ -38,14 +38,33 @@
             {% endif %}
         </div>
         <div class="form-group">
-            <label for="id_attached_file">Прикрепленные файлы:</label>
+            <label for="id_attached_file">Прикрепленный файл:</label>
+            {{ form.attached_file }}
+            {% if form.attached_file.errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ form.attached_file.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <label for="id_files">Дополнительные файлы:</label>
             {{ formset.management_form }}
             {% for form in formset.forms %}
                 <div class="form-row">
                     {{ form.file.label_tag }}
                     {{ form.file }}
+                    {% if form.file.errors %}
+                        <div class="alert alert-danger mt-2">
+                            {{ form.file.errors }}
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
+            {% if formset.non_form_errors %}
+                <div class="alert alert-danger mt-2">
+                    {{ formset.non_form_errors }}
+                </div>
+            {% endif %}
         </div>
         <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Сохранить{% else %}Создать{% endif %}</button>
     </form>

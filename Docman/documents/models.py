@@ -11,7 +11,7 @@ class Document(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    attached_file = models.FileField(upload_to='documents/')
+    attached_file = models.FileField(upload_to='documents/', blank=True, null=True)
     document_type = models.ForeignKey(DocumentType, on_delete=models.CASCADE)
 
     def __str__(self):
