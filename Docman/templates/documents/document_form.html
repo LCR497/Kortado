@@ -38,28 +38,22 @@
             {% endif %}
         </div>
         <div class="form-group">
-            <label for="id_attached_file">Прикрепленный файл:</label>
-            {{ form.attached_file }}
-            {% if form.attached_file.errors %}
-                <div class="alert alert-danger mt-2">
-                    {{ form.attached_file.errors }}
-                </div>
-            {% endif %}
-        </div>
-        <div class="form-group">
             <label for="id_files">Дополнительные файлы:</label>
             {{ formset.management_form }}
-            {% for form in formset.forms %}
-                <div class="form-row">
-                    {{ form.file.label_tag }}
-                    {{ form.file }}
-                    {% if form.file.errors %}
-                        <div class="alert alert-danger mt-2">
-                            {{ form.file.errors }}
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
+            <div id="file-formset">
+                {% for form in formset.forms %}
+                    <div class="form-row">
+                        {{ form.file.label_tag }}
+                        {{ form.file }}
+                        {% if form.file.errors %}
+                            <div class="alert alert-danger mt-2">
+                                {{ form.file.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="btn btn-secondary mt-2" id="add-file-button">Добавить файл</button>
             {% if formset.non_form_errors %}
                 <div class="alert alert-danger mt-2">
                     {{ formset.non_form_errors }}
@@ -69,4 +63,29 @@
         <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Сохранить{% else %}Создать{% endif %}</button>
     </form>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let formsetDiv = document.getElementById('file-formset');
+        let addFileButton = document.getElementById('add-file-button');
+
+        addFileButton.addEventListener('click', function () {
+            let newForm = formsetDiv.children[0].cloneNode(true);
+            let formCount = formsetDiv.children.length;
+
+            newForm.querySelectorAll('input').forEach(function (input) {
+                let name = input.name.replace(/-\d+-/, `-${formCount}-`);
+                let id = input.id.replace(/-\d+-/, `-${formCount}-`);
+                input.name = name;
+                input.id = id;
+                input.value = "";
+            });
+
+            formsetDiv.appendChild(newForm);
+
+            let totalForms = document.querySelectorAll('#id_files-TOTAL_FORMS')[0];
+            totalForms.value = formCount + 1;
+        });
+    });
+</script>
 {% endblock %}
